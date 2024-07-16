@@ -20,10 +20,10 @@ while times < itration:
 
                 try:
                     rtt = int.from_bytes(rawFrame[0:4],byteorder='big')
-                    print('rtt:',rtt)
+                    #print('rtt:',rtt)
                     response_rssi = bytes(rawFrame[4:8])
                     response_rssi = int(response_rssi.decode('utf-8'))
-                    print('rssi:',response_rssi)
+                    #print('rssi:',response_rssi)
                     times = times + 1
                     rtt_list.append(rtt)
                     rssi_list.append(response_rssi)
@@ -34,4 +34,4 @@ while times < itration:
 rtt_array = np.array(rtt_list)
 rssi_array = np.array(rssi_list)
 
-np.savez('distance1.npz', rtt = rtt_array, rssi = rssi_array)
+np.savez('data/distance1.npz', rtt = rtt_array, rssi = rssi_array)
